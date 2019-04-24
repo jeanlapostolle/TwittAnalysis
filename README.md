@@ -14,9 +14,9 @@
 
 ## Éxecution
 
-'''
+```
 python3 main.py
-'''
+```
 
 ## Exemple
 
