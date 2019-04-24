@@ -20,4 +20,4 @@ python3 main.py
 
 ## Exemple
 
-![exemple](example.gif)
+![exemple](ressource/example.gif)

@@ -7,12 +7,12 @@ def HTMLtoCSV(filein):
     csv = open("res.csv", "w")
 
     file_name = filein
-    with open(file_name) as html_file:
-        soup = BeautifulSoup(html_file)
+    with open(file_name, encoding="utf-8") as html_file:
+        soup = BeautifulSoup(html_file, features="html.parser")
 
     tweets = soup.findAll("div", {"class": "tweet"})
 
-    print("Nombre de tweets :", len(tweets) - 1)
+    # print("Nombre de tweets :", len(tweets) - 1)
     for tweet in tweets:
         at = tweet.find("span", {"class": "username"})
         if at != None:
@@ -28,4 +28,4 @@ def HTMLtoCSV(filein):
 
         csv.write("{},{},{},\n".format(name, time, info))
 
-    print("Nombre de tweets :", len(tweets) - 1)
+    # print("Nombre de tweets :", len(tweets) - 1)

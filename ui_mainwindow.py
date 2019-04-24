@@ -2,11 +2,12 @@
 
 # Form implementation generated from reading ui file 'MainWindow.ui'
 #
-# Created by: PyQt5 UI code generator 5.9.2
+# Created by: PyQt5 UI code generator 5.12.1
 #
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -28,13 +29,39 @@ class Ui_MainWindow(object):
         self.textEdit.setMaximumSize(QtCore.QSize(16777215, 16777215))
         self.textEdit.setObjectName("textEdit")
         self.verticalLayout_4.addWidget(self.textEdit)
+        self.horizontalLayout_3 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_3.setObjectName("horizontalLayout_3")
+        self.label_2 = QtWidgets.QLabel(self.centralwidget)
+        self.label_2.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.label_2.setObjectName("label_2")
+        self.horizontalLayout_3.addWidget(self.label_2)
+        self.wcheight = QtWidgets.QSpinBox(self.centralwidget)
+        self.wcheight.setMinimum(1)
+        self.wcheight.setMaximum(2048)
+        self.wcheight.setProperty("value", 400)
+        self.wcheight.setObjectName("wcheight")
+        self.horizontalLayout_3.addWidget(self.wcheight)
+        self.label_3 = QtWidgets.QLabel(self.centralwidget)
+        self.label_3.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.label_3.setObjectName("label_3")
+        self.horizontalLayout_3.addWidget(self.label_3)
+        self.wcwidth = QtWidgets.QSpinBox(self.centralwidget)
+        self.wcwidth.setMinimum(1)
+        self.wcwidth.setMaximum(2048)
+        self.wcwidth.setProperty("value", 400)
+        self.wcwidth.setObjectName("wcwidth")
+        self.horizontalLayout_3.addWidget(self.wcwidth)
+        self.wcupdate = QtWidgets.QPushButton(self.centralwidget)
+        self.wcupdate.setObjectName("wcupdate")
+        self.horizontalLayout_3.addWidget(self.wcupdate)
+        self.verticalLayout_4.addLayout(self.horizontalLayout_3)
+        spacerItem = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.verticalLayout_4.addItem(spacerItem)
         self.line_2 = QtWidgets.QFrame(self.centralwidget)
         self.line_2.setFrameShape(QtWidgets.QFrame.HLine)
         self.line_2.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line_2.setObjectName("line_2")
         self.verticalLayout_4.addWidget(self.line_2)
-        spacerItem = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        self.verticalLayout_4.addItem(spacerItem)
         self.horizontalLayout.addLayout(self.verticalLayout_4)
         self.line = QtWidgets.QFrame(self.centralwidget)
         self.line.setFrameShape(QtWidgets.QFrame.VLine)
@@ -44,10 +71,12 @@ class Ui_MainWindow(object):
         self.verticalLayout_5 = QtWidgets.QVBoxLayout()
         self.verticalLayout_5.setObjectName("verticalLayout_5")
         self.wcloud = QtWidgets.QLabel(self.centralwidget)
+        self.wcloud.setMinimumSize(QtCore.QSize(400, 0))
         self.wcloud.setScaledContents(True)
         self.wcloud.setObjectName("wcloud")
         self.verticalLayout_5.addWidget(self.wcloud)
         self.freq = QtWidgets.QLabel(self.centralwidget)
+        self.freq.setMinimumSize(QtCore.QSize(400, 0))
         self.freq.setScaledContents(True)
         self.freq.setObjectName("freq")
         self.verticalLayout_5.addWidget(self.freq)
@@ -99,6 +128,9 @@ class Ui_MainWindow(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.label.setText(_translate("MainWindow", "Wordcloud Stopword"))
+        self.label_2.setText(_translate("MainWindow", "Height :"))
+        self.label_3.setText(_translate("MainWindow", "Width :"))
+        self.wcupdate.setText(_translate("MainWindow", "Réactualiser le nuage de mots"))
         self.wcloud.setText(_translate("MainWindow", "Wordcloud"))
         self.freq.setText(_translate("MainWindow", "Frequence"))
         self.menuFichier.setTitle(_translate("MainWindow", "Fichier"))
@@ -111,4 +143,5 @@ class Ui_MainWindow(object):
         self.actionQuitter.setText(_translate("MainWindow", "Quitter"))
         self.actionAide.setText(_translate("MainWindow", "Aide"))
         self.actionCr_ateur.setText(_translate("MainWindow", "Créateur"))
+
 

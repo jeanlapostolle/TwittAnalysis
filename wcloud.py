@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 from wordcloud import WordCloud, STOPWORDS
 
 
-def WCLOUD(stpwrd, imgfname="wordcloud.png"):
+def WCLOUD(stpwrd, imgfname="wordcloud.png", w=400, h=400):
 
     # Lecture des tweets
     file = open("res.csv", "r")
@@ -17,8 +17,8 @@ def WCLOUD(stpwrd, imgfname="wordcloud.png"):
     def generate_wordcloud(text):
         wordcloud = WordCloud(font_path='Roboto_Slab/RobotoSlab-Regular.ttf',  # la font utilisé
                               relative_scaling=1,
-                              width=400,  # taille de l'image finale, prédit la résolution des mots aussi
-                              height=400,
+                              width=w,  # taille de l'image finale, prédit la résolution des mots aussi
+                              height=h,
                               stopwords=g_stopwords).generate(text)
         plt.imsave(imgfname, wordcloud)
 

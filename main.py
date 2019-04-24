@@ -23,6 +23,9 @@ class MainWindow(QMainWindow):
             self.saveFrequences)
         self.ui.actionQuitter.triggered.connect(self.close)
         self.ui.actionCr_ateur.triggered.connect(self.crea)
+        self.ui.actionAide.triggered.connect(self.help)
+
+        self.ui.wcupdate.clicked.connect(self.setWordCloud)
 
         self.resize(820, 540)
         self.setWindowTitle("TwittAnalysis")
@@ -38,9 +41,9 @@ class MainWindow(QMainWindow):
             self, 'Open file', '.', "HTML file (*.html)")
         fdialog.setVisible(False)
         if fname[0]:
-            print("load")
+            # print("load")
             HTMLtoCSV(fname[0])
-            print("load end")
+            # print("load end")
             self.updateGraph()
 
     def loadCSV(self, e):
@@ -52,7 +55,7 @@ class MainWindow(QMainWindow):
             fin = open(fname[0], 'r')
             fout = open("res.csv", 'w')
             for line in fin.readlines():
-                print(line)
+                # print(line)
                 fout.write(line)
             fout.close()
             self.updateGraph()
@@ -63,7 +66,7 @@ class MainWindow(QMainWindow):
         fin = open("res.csv", 'r')
         fout = open(name[0], 'w')
         for line in fin.readlines():
-            print(line)
+            # print(line)
             fout.write(line)
         fout.close()
         fin.close()
@@ -71,25 +74,42 @@ class MainWindow(QMainWindow):
     def saveWorkCloud(self, e):
         name = QFileDialog.getSaveFileName(
             self, 'Save File')
-        stopword = set()
-        for word in self.ui.textEdit.toPlainText().split(";"):
-            stopword.add(word)
-        WCLOUD(stopword, name[0])
+        nam = name[0]
+        if nam:
+            if not name[0].endswith(".png"):
+                nam += ".png"
+            stopword = set()
+            for word in self.ui.textEdit.toPlainText().split(";"):
+                stopword.add(word)
+            width = self.ui.wcwidth.value()
+            height = self.ui.wcheight.value()
+            WCLOUD(stopword, nam, w=width, h=height)
 
     def saveFrequences(self, e):
         name = QFileDialog.getSaveFileName(
             self, 'Save File')
-        FREQ(name[0])
+        nam = name[0]
+        if nam:
+            if not name[0].endswith(".png"):
+                nam += ".png"
+            FREQ(nam)
 
     def crea(self):
         QDesktopServices.openUrl(QUrl("https://github.com/jeanlapostolle/"))
+
+    def help(self):
+        QDesktopServices.openUrl(
+            QUrl("https://github.com/jeanlapostolle/TwittAnalysis"))
 
     def setWordCloud(self):
         stopword = set()
         for word in self.ui.textEdit.toPlainText().split(";"):
             stopword.add(word)
-        WCLOUD(stopword)
-        pixmap = QPixmap("wordcloud.png")
+        width = self.ui.wcwidth.value()
+        height = self.ui.wcheight.value()
+        WCLOUD(stopword, w=width, h=height)
+
+        pixmap = QPixmap("wordcloud.png", )
         self.ui.wcloud.setPixmap(pixmap)
         self.ui.wcloud.show()
         self.ui.wcloud.setScaledContents(True)
