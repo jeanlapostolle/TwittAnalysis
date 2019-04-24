@@ -1,29 +1,28 @@
 import matplotlib.pyplot as plt
 
 
-def FREQ(imgfname="freq.png"):
+def FREQ(dateFrom, dateTo, pas=4, imgfname="freq.png"):
+    # print(self.ui.dateFrom.date().toString("d MMMM yyyy"))
+            # for dat in range(x.daysTo(self.ui.dateTo.date())):
+            #     x = x.addDays(1)
+            #     print(x)
     file = open("res.csv", "r")
 
-    y = [0] * 384
+    NbOfDays = dateFrom.daysTo(dateTo)
+    y = [0] * (NbOfDays * pas)
 
     for line in file.readlines():
-        tmp = 0
         date = line.split(",")[1]
-        tmp += int(date[:2]) * 4
-        tmp += int(date[3:5]) // 15
-        if date.endswith("21 mars 2013"):
-            pass
-        if date.endswith("22 mars 2013"):
-            tmp += 96
-            pass
-        if date.endswith("23 mars 2013"):
-            tmp += 192
-            pass
-        if date.endswith("24 mars 2013"):
-            tmp += 288
-            pass
-        y[tmp] += 1
+        x = dateFrom
+        for i in range(NbOfDays):
+            if date.endswith(x.toString(" d MMM yyyy")):
+                d = i * pas
+                d += int(int(date[3:5]) / 60 + int(date[0:2]) * pas / 24)
+                if d < len(y):
+                    y[d] += 1
+            x = x.addDays(1)
 
-    plt.plot(range(384), y)
+    plt.clf()
+    plt.plot(range(NbOfDays * pas), y)
 
     plt.savefig(imgfname)

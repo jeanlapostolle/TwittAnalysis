@@ -26,6 +26,9 @@ class MainWindow(QMainWindow):
         self.ui.actionAide.triggered.connect(self.help)
 
         self.ui.wcupdate.clicked.connect(self.setWordCloud)
+        self.ui.dateFrom.dateChanged.connect(self.setDate)
+        self.ui.dateTo.dateChanged.connect(self.setDate)
+        self.ui.frupdate.clicked.connect(self.setFrequence)
 
         self.resize(820, 540)
         self.setWindowTitle("TwittAnalysis")
@@ -34,6 +37,10 @@ class MainWindow(QMainWindow):
     def updateGraph(self):
         self.setWordCloud()
         self.setFrequence()
+
+    def setDate(self, e):
+        # print(self.ui.dateFrom.date().toString("d MMM yyyy"))
+        pass
 
     def loadHTML(self, e):
         fdialog = QFileDialog()
@@ -92,7 +99,8 @@ class MainWindow(QMainWindow):
         if nam:
             if not name[0].endswith(".png"):
                 nam += ".png"
-            FREQ(nam)
+            FREQ(self.ui.dateFrom.date(), self.ui.dateTo.date(),
+                 self.ui.graphpas.value(), nam)
 
     def crea(self):
         QDesktopServices.openUrl(QUrl("https://github.com/jeanlapostolle/"))
@@ -115,7 +123,8 @@ class MainWindow(QMainWindow):
         self.ui.wcloud.setScaledContents(True)
 
     def setFrequence(self):
-        FREQ()
+        FREQ(self.ui.dateFrom.date(), self.ui.dateTo.date(),
+             self.ui.graphpas.value())
         pixmap = QPixmap("freq.png")
         self.ui.freq.setPixmap(pixmap)
         self.ui.freq.show()
