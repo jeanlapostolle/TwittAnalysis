@@ -23,6 +23,10 @@ def FREQ(dateFrom, dateTo, pas=4, imgfname="freq.png"):
             x = x.addDays(1)
 
     plt.clf()
-    plt.plot(range(NbOfDays * pas), y)
+    x = [dateFrom.addDays(i // pas).toString("d MMM") if i %
+         pas == 0 else i for i in range(NbOfDays * pas)]
+    plt.locator_params(axis='x', nbins=(NbOfDays or 1))
+    plt.xticks(rotation=45)
+    plt.plot(x, y)
 
     plt.savefig(imgfname)
