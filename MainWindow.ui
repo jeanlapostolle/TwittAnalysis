@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1009</width>
+    <height>726</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayout_4">
+        <item>
+         <widget class="QLabel" name="label">
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Wordcloud Stopword</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QTextEdit" name="textEdit">
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>16777215</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="Line" name="line_2">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="verticalSpacer">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="Line" name="line">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayout_5">
+        <item>
+         <widget class="QLabel" name="wcloud">
+          <property name="text">
+           <string>Wordcloud</string>
+          </property>
+          <property name="scaledContents">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="freq">
+          <property name="text">
+           <string>Frequence</string>
+          </property>
+          <property name="scaledContents">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1009</width>
+     <height>29</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFichier">
+    <property name="title">
+     <string>Fichier</string>
+    </property>
+    <addaction name="actionOuvrir_HTML"/>
+    <addaction name="actionOuvrir_CSV"/>
+    <addaction name="actionEnregistrer_CSV"/>
+    <addaction name="actionEnregistrer_Worcloud"/>
+    <addaction name="actionEnregistrer_Fr_quences"/>
+    <addaction name="actionQuitter"/>
+   </widget>
+   <widget class="QMenu" name="menu_Propos">
+    <property name="title">
+     <string>À Propos</string>
+    </property>
+    <addaction name="actionAide"/>
+    <addaction name="actionCr_ateur"/>
+   </widget>
+   <addaction name="menuFichier"/>
+   <addaction name="menu_Propos"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionOuvrir_HTML">
+   <property name="text">
+    <string>Ouvrir HTML</string>
+   </property>
+  </action>
+  <action name="actionOuvrir_CSV">
+   <property name="text">
+    <string>Ouvrir CSV</string>
+   </property>
+  </action>
+  <action name="actionEnregistrer_CSV">
+   <property name="text">
+    <string>Enregistrer CSV</string>
+   </property>
+  </action>
+  <action name="actionEnregistrer_Worcloud">
+   <property name="text">
+    <string>Enregistrer Nuages de mots</string>
+   </property>
+  </action>
+  <action name="actionEnregistrer_Fr_quences">
+   <property name="text">
+    <string>Enregistrer Fréquences</string>
+   </property>
+  </action>
+  <action name="actionQuitter">
+   <property name="text">
+    <string>Quitter</string>
+   </property>
+  </action>
+  <action name="actionAide">
+   <property name="text">
+    <string>Aide</string>
+   </property>
+  </action>
+  <action name="actionCr_ateur">
+   <property name="text">
+    <string>Créateur</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
