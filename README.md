@@ -20,4 +20,4 @@ python3 main.py
 
 ## Exemple
 
-[![ALT TEXT](wordcloud.png)](example.mp4)
+![exemple](example.gif)
